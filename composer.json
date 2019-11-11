@@ -1,0 +1,7 @@
+{
+    "name": "wecotravel/invoice-sdk",
+    "description": "SDK for sending invoices over wecotravel's API",
+    "type": "library",
+    "minimum-stability": "stable",
+    "require": {}
+}
