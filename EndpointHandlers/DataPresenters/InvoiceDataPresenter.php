@@ -1,8 +1,6 @@
 <?php
 
-
 namespace invoiceSDK\EndpointHandlers\DataPresenters;
-
 
 use invoiceSDK\DataStructures\Invoice;
 
@@ -31,6 +29,8 @@ class InvoiceDataPresenter extends AbstractDataPresenter
         $objectToPresent->customerReference = $this->data->getCustomerReference();
         $objectToPresent->company = $this->data->getCompany();
         $objectToPresent->emailAddress = $this->data->getEmailAddress();
+        $objectToPresent->externalInvoiceNumber = $this->data->getExternalInvoiceNumber();
+        $objectToPresent->callbackUrl = $this->data->getCallbackUrl();
         if (!is_null($this->data->getTransactionNumber())) {
             $objectToPresent->transactionNumber = $this->data->getTransactionNumber();
             $objectToPresent->paymentStatus = 'paid';

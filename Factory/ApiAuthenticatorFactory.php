@@ -1,8 +1,6 @@
 <?php
 
-
 namespace invoiceSDK\Factory;
-
 
 use invoiceSDK\Classes\ApiAuthenticator;
 use invoiceSDK\Classes\ApiAuthenticatorInterface;

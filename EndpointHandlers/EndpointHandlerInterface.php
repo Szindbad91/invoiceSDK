@@ -1,8 +1,6 @@
 <?php
 
-
 namespace invoiceSDK\EndpointHandlers;
-
 
 interface EndpointHandlerInterface
 {

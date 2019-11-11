@@ -1,8 +1,6 @@
 <?php
 
-
 namespace invoiceSDK\EndpointHandlers;
-
 
 use invoiceSDK\EndpointHandlers\DataPresenters\InvoiceDataPresenter;
 use invoiceSDK\EndpointHandlers\HttpMethodTraits\PostMethodTrait;
@@ -12,16 +10,16 @@ class PostInvoiceHandler extends AbstractEndpointHandler
 {
     use PostMethodTrait;
 
-    private const ENDPOINT = '/api/invoice/head';
+    private const ENDPOINT = 'api/invoice/head';
 
     public function __construct()
     {
         $this->dataPresenter = DataPresenterFactory::create(InvoiceDataPresenter::class);
-        $this->dataPresenter->setData($this->data);
     }
 
     public function getPresentedData(): string
     {
+        $this->dataPresenter->setData($this->data);
         return $this->dataPresenter->present();
     }
 

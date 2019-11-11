@@ -1,12 +1,11 @@
 <?php
 
-
 namespace invoiceSDK\Factory;
-
 
 use invoiceSDK\EndpointHandlers\DataPresenters\DataPresenterInterface;
 use invoiceSDK\EndpointHandlers\DataPresenters\InvoiceDataPresenter;
 use invoiceSDK\EndpointHandlers\DataPresenters\InvoiceItemDataPresenter;
+use invoiceSDK\EndpointHandlers\DataPresenters\PaymentDataPresenter;
 
 final class DataPresenterFactory
 {
@@ -18,6 +17,8 @@ final class DataPresenterFactory
                 return new InvoiceDataPresenter();
             case InvoiceItemDataPresenter::class:
                 return new InvoiceItemDataPresenter();
+            case PaymentDataPresenter::class:
+                return new PaymentDataPresenter();
             default:
                 throw new \Exception('Type ' . $type . ' not supported');
         }

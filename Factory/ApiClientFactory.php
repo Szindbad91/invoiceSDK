@@ -1,8 +1,6 @@
 <?php
 
-
 namespace invoiceSDK\Factory;
-
 
 use invoiceSDK\Classes\Api;
 use invoiceSDK\DataStructures\ApiConfig;

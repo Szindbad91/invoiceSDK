@@ -3,7 +3,6 @@
 
 namespace invoiceSDK\Classes;
 
-
 use invoiceSDK\DataStructures\ApiConfig;
 
 interface ApiAuthenticatorInterface

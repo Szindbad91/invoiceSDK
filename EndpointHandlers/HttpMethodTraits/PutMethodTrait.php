@@ -8,6 +8,6 @@ trait PutMethodTrait
 {
     public function getEndpointMethod(): string
     {
-        return 'POST';
+        return 'PUT';
     }
 }

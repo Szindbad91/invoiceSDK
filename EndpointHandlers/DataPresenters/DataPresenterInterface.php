@@ -1,4 +1,5 @@
 <?php
+
 namespace invoiceSDK\EndpointHandlers\DataPresenters;
 
 interface DataPresenterInterface

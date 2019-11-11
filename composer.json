@@ -3,5 +3,13 @@
     "description": "SDK for sending invoices over wecotravel's API",
     "type": "library",
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+      "ext-json": "*",
+      "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4":{
+            "invoiceSDK\\": ""
+        }
+    }
 }

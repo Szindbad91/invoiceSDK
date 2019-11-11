@@ -4,6 +4,10 @@ namespace invoiceSDK\DataStructures;
 class Invoice
 {
     /**
+     * @var int $invoideId
+     */
+    private $invoiceId;
+    /**
      * @var string $customerName
      */
     private $customerName;
@@ -79,6 +83,16 @@ class Invoice
     private $transactionNumber;
 
     /**
+     * @var string $externalInvoiceNumber
+     */
+    private $externalInvoiceNumber;
+
+    /**
+     * @var string $callbackUrl
+     */
+    private $callbackUrl;
+
+    /**
      * @var InvoiceItem[] $invoiceItems
      */
     private $invoiceItems;
@@ -88,6 +102,15 @@ class Invoice
         $this->invoiceItems = [];
     }
 
+    /**
+     * @param int $invoiceId
+     */
+    public function setInvoiceId(int $invoiceId): self
+    {
+        $this->invoiceId = $invoiceId;
+
+        return $this;
+    }
     /**
      * @param string $customerName
      */
@@ -239,9 +262,19 @@ class Invoice
     }
 
     /**
+     * @param string $externalInvoiceNumber
+     */
+    public function setExternalInvoiceNumber(string $externalInvoiceNumber): self
+    {
+        $this->externalInvoiceNumber = $externalInvoiceNumber;
+
+        return $this;
+    }
+
+    /**
      * @param InvoiceItem[] $invoiceItems
      */
-    public function addInvoiceItems(InvoiceItem $invoiceItems): self
+    public function addInvoiceItem(InvoiceItem $invoiceItems): self
     {
         $this->invoiceItems[] = $invoiceItems;
 
@@ -249,9 +282,17 @@ class Invoice
     }
 
     /**
+     * @return int
+     */
+    public function getInvoiceId(): ?int
+    {
+        return $this->invoiceId;
+    }
+
+    /**
      * @return string
      */
-    public function getCustomerName(): string
+    public function getCustomerName(): ?string
     {
         return $this->customerName;
     }
@@ -259,7 +300,7 @@ class Invoice
     /**
      * @return string
      */
-    public function getCustomerCity(): string
+    public function getCustomerCity(): ?string
     {
         return $this->customerCity;
     }
@@ -267,7 +308,7 @@ class Invoice
     /**
      * @return string
      */
-    public function getCustomerAddress(): string
+    public function getCustomerAddress(): ?string
     {
         return $this->customerAddress;
     }
@@ -275,7 +316,7 @@ class Invoice
     /**
      * @return string
      */
-    public function getCustomerZipCode(): string
+    public function getCustomerZipCode(): ?string
     {
         return $this->customerZipCode;
     }
@@ -283,7 +324,7 @@ class Invoice
     /**
      * @return string
      */
-    public function getCustomerCountryCode(): string
+    public function getCustomerCountryCode(): ?string
     {
         return $this->customerCountryCode;
     }
@@ -291,7 +332,7 @@ class Invoice
     /**
      * @return \DateTimeInterface
      */
-    public function getDate(): \DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
@@ -299,7 +340,7 @@ class Invoice
     /**
      * @return string
      */
-    public function getEventName(): string
+    public function getEventName(): ?string
     {
         return $this->eventName;
     }
@@ -307,7 +348,7 @@ class Invoice
     /**
      * @return \DateTimeInterface
      */
-    public function getPositionStartDate(): \DateTimeInterface
+    public function getPositionStartDate(): ?\DateTimeInterface
     {
         return $this->positionStartDate;
     }
@@ -315,7 +356,7 @@ class Invoice
     /**
      * @return \DateTimeInterface
      */
-    public function getPositionEndDate(): \DateTimeInterface
+    public function getPositionEndDate(): ?\DateTimeInterface
     {
         return $this->positionEndDate;
     }
@@ -323,7 +364,7 @@ class Invoice
     /**
      * @return string
      */
-    public function getPositionNumber(): string
+    public function getPositionNumber(): ?string
     {
         return $this->positionNumber;
     }
@@ -331,7 +372,7 @@ class Invoice
     /**
      * @return string
      */
-    public function getCustomerReference(): string
+    public function getCustomerReference(): ?string
     {
         return $this->customerReference;
     }
@@ -339,7 +380,7 @@ class Invoice
     /**
      * @return string
      */
-    public function getCompany(): string
+    public function getCompany(): ?string
     {
         return $this->company;
     }
@@ -347,7 +388,7 @@ class Invoice
     /**
      * @return string
      */
-    public function getEmailAddress(): string
+    public function getEmailAddress(): ?string
     {
         return $this->emailAddress;
     }
@@ -355,7 +396,7 @@ class Invoice
     /**
      * @return string
      */
-    public function getPaymentStatus(): string
+    public function getPaymentStatus(): ?string
     {
         return $this->paymentStatus;
     }
@@ -363,10 +404,19 @@ class Invoice
     /**
      * @return string
      */
-    public function getTransactionNumber(): string
+    public function getTransactionNumber(): ?string
     {
         return $this->transactionNumber;
     }
+
+    /**
+     * @return string
+     */
+    public function getExternalInvoiceNumber(): ?string
+    {
+        return $this->externalInvoiceNumber;
+    }
+
 
     /**
      * @return InvoiceItem[]
@@ -375,4 +425,24 @@ class Invoice
     {
         return $this->invoiceItems;
     }
+
+    /**
+     * @return string
+     */
+    public function getCallbackUrl(): string
+    {
+        return $this->callbackUrl;
+    }
+
+    /**
+     * @param string $callbackUrl
+     */
+    public function setCallbackUrl(string $callbackUrl): self
+    {
+        $this->callbackUrl = $callbackUrl;
+
+        return $this;
+    }
+
+
 }

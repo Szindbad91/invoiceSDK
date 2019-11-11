@@ -111,7 +111,7 @@ class InvoiceItem
     /**
      * @return string
      */
-    public function getOrderText(): string
+    public function getOrderText(): ?string
     {
         return $this->orderText;
     }
@@ -119,7 +119,7 @@ class InvoiceItem
     /**
      * @return int
      */
-    public function getQuantity(): int
+    public function getQuantity(): ?int
     {
         return $this->quantity;
     }
@@ -127,7 +127,7 @@ class InvoiceItem
     /**
      * @return string
      */
-    public function getUnit(): string
+    public function getUnit(): ?string
     {
         return $this->unit;
     }
@@ -135,7 +135,7 @@ class InvoiceItem
     /**
      * @return string
      */
-    public function getCurrencyCode(): string
+    public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
     }
@@ -143,7 +143,7 @@ class InvoiceItem
     /**
      * @return int
      */
-    public function getGrossPrice(): int
+    public function getGrossPrice(): ?int
     {
         return $this->grossPrice;
     }
@@ -151,7 +151,7 @@ class InvoiceItem
     /**
      * @return int
      */
-    public function getRowSum(): int
+    public function getRowSum(): ?int
     {
         return $this->rowSum;
     }
@@ -159,7 +159,7 @@ class InvoiceItem
     /**
      * @return string
      */
-    public function getItemNumber(): string
+    public function getItemNumber(): ?string
     {
         return $this->itemNumber;
     }

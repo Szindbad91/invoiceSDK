@@ -1,8 +1,6 @@
 <?php
 
-
 namespace invoiceSDK\EndpointHandlers\DataPresenters;
-
 
 use invoiceSDK\DataStructures\InvoiceItem;
 

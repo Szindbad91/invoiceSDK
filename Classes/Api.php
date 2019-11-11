@@ -2,8 +2,6 @@
 namespace invoiceSDK\Classes;
 
 use invoiceSDK\DataStructures\ApiConfig;
-use invoiceSDK\DataStructures\Invoice;
-use invoiceSDK\DataStructures\InvoiceItem;
 use invoiceSDK\EndpointHandlers\EndpointHandlerInterface;
 use invoiceSDK\Factory\ApiAuthenticatorFactory;
 
@@ -34,17 +32,21 @@ class Api implements WecoInvoiceApiInterface
         $this->endpointHandler = $endpointHandler;
     }
 
-    public function sendRequestToEndpoint($data)
+    public function sendRequestToEndpoint(): Response
     {
         $method = $this->endpointHandler->getEndpointMethod();
         $endpoint = $this->endpointHandler->getEndpoint();
         $presentedData = $this->endpointHandler->getPresentedData();
 
+        $token = $this->apiAuthenticator->getToken();
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->apiConfig->getApiHost() . '/' . $endpoint);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($method));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Bearer ' . $token));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $presentedData);
 
+        return Response::createFromCurlHandler($ch);
     }
 }
