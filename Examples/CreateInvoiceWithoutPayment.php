@@ -10,8 +10,11 @@ use invoiceSDK\Exceptions\ServiceUnavailableException;
 use invoiceSDK\Exceptions\InternalServerErrorException;
 use invoiceSDK\Factory\ApiConfigFactory;
 
+/**
+ * Create Invoice object
+ * All parameters are Required
+ */
 $invoice = new \invoiceSDK\DataStructures\Invoice();
-
 $invoice->setCustomerName('Test Customer');
 $invoice->setCustomerCity('City');
 $invoice->setCustomerAddress('Address 1.');
@@ -28,6 +31,10 @@ $invoice->setEmailAddress('test@email.hu');
 $invoice->setExternalInvoiceNumber('123\TEST2019');
 $invoice->setCallbackUrl('https://test-callback-url.hu/payment');
 
+/**
+ * Create InvoiceItem object
+ * Multiple item can be added to Invoice
+ */
 $invoiceItem = new InvoiceItem();
 $invoiceItem->setOrderText('Item order text');
 $invoiceItem->setQuantity(1);
@@ -37,18 +44,22 @@ $invoiceItem->setGrossPrice(1000);
 $invoiceItem->setItemNumber('1');
 $invoiceItem->setRowSum(1000);
 
+/** Adding invoice item to invoice */
 $invoice->addInvoiceItem($invoiceItem);
 
-
+/** Creating config object */
 $apiConfig = ApiConfigFactory::create();
 
+/** Setting up config from environment variables */
 $apiConfig->setApiHost(getenv('WECOTRAVEL_INVOICE_HOST'));
 $apiConfig->setClientId(getenv('WECOTRAVEL_INVOICE_CLIENT_ID'));
 $apiConfig->setClientSecret(getenv('WECOTRAVEL_INVOICE_CLIENT_SECRET'));
 
+/** Creating API object */
 /** @var \invoiceSDK\Classes\Api $api */
 $api = \invoiceSDK\ApiBuilder::build($apiConfig, 'createInvoice', $invoice);
 try {
+    /** Sending request to API. This function returns with the Response object */
     $response = $api->sendRequestToEndpoint();
     var_dump($response);
 } catch (ServiceUnavailableException $exception) {
