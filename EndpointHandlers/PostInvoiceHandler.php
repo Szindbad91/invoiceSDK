@@ -10,7 +10,7 @@ class PostInvoiceHandler extends AbstractEndpointHandler
 {
     use PostMethodTrait;
 
-    private const ENDPOINT = 'api/invoice/head';
+    private const ENDPOINT = 'api/invoice';
 
     public function __construct()
     {
