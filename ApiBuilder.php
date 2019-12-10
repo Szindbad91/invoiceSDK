@@ -3,6 +3,7 @@ namespace invoiceSDK;
 
 use invoiceSDK\Classes\WecoInvoiceApiInterface;
 use invoiceSDK\DataStructures\ApiConfig;
+use invoiceSDK\EndpointHandlers\DeleteInvoiceHandler;
 use invoiceSDK\EndpointHandlers\PostInvoiceHandler;
 use invoiceSDK\EndpointHandlers\PutPaymentStatusHandler;
 use invoiceSDK\Exceptions\BadRequestException;
@@ -20,6 +21,7 @@ class ApiBuilder
     private static $actionToClassMap = [
         'createInvoice' => PostInvoiceHandler::class,
         'setPaymentStatus' => PutPaymentStatusHandler::class,
+        'deleteInvoice' => DeleteInvoiceHandler::class,
     ];
 
     /**

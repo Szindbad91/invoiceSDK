@@ -6,6 +6,7 @@ use invoiceSDK\EndpointHandlers\DataPresenters\DataPresenterInterface;
 use invoiceSDK\EndpointHandlers\DataPresenters\InvoiceDataPresenter;
 use invoiceSDK\EndpointHandlers\DataPresenters\InvoiceItemDataPresenter;
 use invoiceSDK\EndpointHandlers\DataPresenters\PaymentDataPresenter;
+use invoiceSDK\EndpointHandlers\DataPresenters\UpdateStatusDataPresenter;
 
 final class DataPresenterFactory
 {
@@ -19,6 +20,8 @@ final class DataPresenterFactory
                 return new InvoiceItemDataPresenter();
             case PaymentDataPresenter::class:
                 return new PaymentDataPresenter();
+            case UpdateStatusDataPresenter::class:
+                return new UpdateStatusDataPresenter();
             default:
                 throw new \Exception('Type ' . $type . ' not supported');
         }
