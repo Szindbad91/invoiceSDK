@@ -56,5 +56,13 @@ class Response
         $this->body = $body;
     }
 
+    public function getHttpStatusCode(): int
+    {
+        return $this->httpStatusCode;
+    }
 
+    public function getBody(): string
+    {
+        return $this->body;
+    }
 }
