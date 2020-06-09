@@ -97,6 +97,11 @@ class Invoice
      */
     private $invoiceItems;
 
+    /**
+     * @var string $vatNumber
+     */
+    private $vatNumber;
+
     public function __construct()
     {
         $this->invoiceItems = [];
@@ -444,5 +449,20 @@ class Invoice
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getVatNumber(): ?string
+    {
+        return $this->vatNumber;
+    }
+
+    /**
+     * @param string $vatNumber
+     */
+    public function setVatNumber(string $vatNumber): void
+    {
+        $this->vatNumber = $vatNumber;
+    }
 
 }

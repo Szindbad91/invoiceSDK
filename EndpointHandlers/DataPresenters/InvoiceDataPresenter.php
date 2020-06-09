@@ -30,6 +30,9 @@ class InvoiceDataPresenter extends AbstractDataPresenter
         if (!is_null($this->data->getCompany()) && $this->data->getCompany()) {
             $objectToPresent->company = $this->data->getCompany();
         }
+        if (!is_null($this->data->getVatNumber()) && $this->data->getVatNumber()) {
+            $objectToPresent->vatNumber = $this->data->getVatNumber();
+        }
         $objectToPresent->emailAddress = $this->data->getEmailAddress();
         $objectToPresent->externalInvoiceNumber = $this->data->getExternalInvoiceNumber();
         $objectToPresent->callbackUrl = $this->data->getCallbackUrl();
